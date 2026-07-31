@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block title %}AI Recipe Generator{% endblock %}
+
+{% block content %}
+
+<section class="section">
+
+    <div class="section-title">
+
+        <h2>🤖 AI Recipe Generator</h2>
+
+        <p>Enter ingredients separated by commas.</p>
+
+    </div>
+
+    <div style="max-width:700px;margin:auto;">
+
+        <textarea
+            id="ingredients"
+            placeholder="Chicken, Rice, Garlic"
+            style="width:100%;height:150px;padding:20px;font-size:18px;"></textarea>
+
+        <br><br>
+
+        <button
+            class="recipe-btn"
+            onclick="generateRecipe()">
+
+            Generate Recipe
+
+        </button>
+
+        <button id="saveRecipeBtn" class="btn btn-warning mt-3">
+    ❤️ Save to Favorites
+</button>
+
+    </div>
+
+    <br><br>
+
+    <div id="recipeResult"></div>
+
+    
+
+</section>
+
+
+<script>
+document.getElementById("saveRecipeBtn").addEventListener("click", async function () {
+
+    const recipeText = document.getElementById("recipeResult").innerText;
+
+    if (!recipeText) {
+        alert("Generate a recipe first!");
+        return;
+    }
+
+    const recipeName = recipeText.split("\n")[0];
+
+    const formData = new FormData();
+    formData.append("recipe_name", recipeName);
+    formData.append("recipe_content", recipeText);
+
+    const response = await fetch("/save-favorite", {
+        method: "POST",
+        body: formData
+    });
+
+    const data = await response.json();
+
+    alert(data.message);
+});
+
+</script>
+
+
+{% endblock %}

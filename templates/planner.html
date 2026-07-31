@@ -1,0 +1,261 @@
+{% extends "base.html" %}
+
+{% block title %}Meal Planner{% endblock %}
+
+{% block content %}
+
+<section class="section">
+
+    <div class="section-title">
+        <h2>📅 Weekly Meal Planner</h2>
+        <p>Plan healthy meals for your week.</p>
+    </div>
+
+    <div class="planner-grid">
+
+      {% for day in ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"] %}
+
+<div class="day-card">
+
+    <h3>{{ day }}</h3>
+
+    {% if meals.get(day) %}
+
+        <div class="meal-content">
+
+            <h4>{{ meals[day].meal_name }}</h4>
+
+            <p>🍽 {{ meals[day].meal_type }}</p>
+
+            <p>🔥 {{ meals[day].calories }} Calories</p>
+
+            <p>🕒 {{ meals[day].meal_time }}</p>
+
+            {% if meals[day].notes %}
+            <p>{{ meals[day].notes }}</p>
+            {% endif %}
+
+            <div class="meal-actions">
+
+                <button
+                    class="planner-btn"
+                    onclick="editMeal('{{ day }}')">
+
+                    ✏ Edit
+
+                </button>
+
+                <button
+                    class="delete-btn"
+                    onclick="deleteMeal('{{ day }}')">
+
+                    🗑 Delete
+
+                </button>
+
+            </div>
+
+        </div>
+
+    {% else %}
+
+        <div class="meal-content">
+
+            <p>No meal planned</p>
+
+        </div>
+
+        <button
+            class="planner-btn"
+            onclick="openMealModal('{{ day }}')">
+
+            ➕ Add Meal
+
+        </button>
+
+    {% endif %}
+
+</div>
+
+{% endfor %}
+
+        
+
+    </div>
+
+</section>
+
+<!-- ================= MODAL ================= -->
+
+<div class="meal-modal" id="mealModal">
+
+    <div class="meal-modal-content">
+
+        <span class="close-btn" onclick="closeMealModal()">&times;</span>
+
+        <h2 id="modalDay">Add Meal</h2>
+
+        <form id="mealForm">
+
+            <input
+                type="hidden"
+                id="mealDay"
+                name="day"
+            >
+
+            <input
+                type="text"
+                id="mealName"
+                name="meal_name"
+                placeholder="Meal Name"
+                required
+            >
+
+            <select
+                id="mealType"
+                name="meal_type"
+            >
+                <option>Breakfast</option>
+                <option>Lunch</option>
+                <option>Dinner</option>
+                <option>Snack</option>
+            </select>
+
+            <input
+                type="number"
+                id="mealCalories"
+                name="calories"
+                placeholder="Calories"
+            >
+
+            <input
+                type="time"
+                id="mealTime"
+                name="meal_time"
+            >
+
+            <textarea
+                id="mealNotes"
+                name="notes"
+                placeholder="Notes"></textarea>
+
+            <button
+                type="button"
+                class="planner-btn"
+                onclick="saveMeal()">
+
+                💾 Save Meal
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+
+
+<script>
+
+function openMealModal(day){
+
+    document.getElementById("mealModal").style.display = "flex";
+
+    document.getElementById("modalDay").innerHTML =
+        "🍽 Add Meal for " + day;
+
+    document.getElementById("mealDay").value = day;
+
+}
+
+function closeMealModal(){
+
+    document.getElementById("mealModal").style.display = "none";
+
+}
+
+async function saveMeal(){
+
+    const form = document.getElementById("mealForm");
+
+    const formData = new FormData(form);
+
+    const response = await fetch("/save-meal",{
+
+        method:"POST",
+
+        body:formData
+
+    });
+
+    const data = await response.json();
+
+    if(data.success){
+
+        alert("✅ Meal Saved!");
+
+        location.reload();
+
+    }else{
+
+        alert(data.error);
+
+    }
+
+}
+
+
+
+
+</script>
+
+<script>
+
+async function editMeal(day){
+
+    const response = await fetch("/get-meal/" + day);
+
+    const data = await response.json();
+
+    if(!data.success){
+
+        alert("Meal not found.");
+
+        return;
+
+    }
+
+    openMealModal(day);
+
+    document.getElementById("mealName").value = data.meal.meal_name;
+    document.getElementById("mealType").value = data.meal.meal_type;
+    document.getElementById("mealCalories").value = data.meal.calories;
+    document.getElementById("mealTime").value = data.meal.meal_time;
+    document.getElementById("mealNotes").value = data.meal.notes;
+
+}
+
+
+async function deleteMeal(day){
+
+    if(!confirm("Delete this meal?")){
+        return;
+    }
+
+    const response = await fetch("/delete-meal/" + day,{
+        method:"POST"
+    });
+
+    const data = await response.json();
+
+    if(data.success){
+        location.reload();
+    }
+
+}
+
+</script>
+
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}Favorites{% endblock %}
+
+{% block content %}
+
+<section class="section">
+
+    <div class="section-title">
+
+        <h2>❤️ My Favorite Recipes</h2>
+
+    </div>
+
+    <div id="favoritesList"></div>
+
+</section>
+
+<script>
+
+const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+const container = document.getElementById("favoritesList");
+
+if(favorites.length===0){
+
+    container.innerHTML="<h2>No favorite recipes yet.</h2>";
+
+}else{
+
+    favorites.forEach(recipe=>{
+
+    container.innerHTML += `
+        <div class="ai-card">
+
+            <div class="ai-header">
+
+                <h2>🤖 Saved Recipe</h2>
+
+            </div>
+
+            <div class="ai-body">
+
+                <pre class="recipe-output">
+
+${recipe}
+
+                </pre>
+
+            </div>
+
+        </div>
+    `;
+
+});
+
+}
+
+</script>
+
+{% endblock %}

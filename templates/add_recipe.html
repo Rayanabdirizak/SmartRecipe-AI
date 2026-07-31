@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block title %}Add Recipe{% endblock %}
+
+{% block content %}
+
+<section class="auth-section">
+
+    <div class="auth-card" style="max-width:800px;">
+
+        <div class="auth-header">
+            <h1>🍽 Add New Recipe</h1>
+            <p>Share your favorite recipe with the community.</p>
+        </div>
+
+        <form>
+
+            <div class="form-group">
+                <label>Recipe Name</label>
+                <input type="text" placeholder="Recipe name">
+            </div>
+
+            <div class="form-group">
+                <label>Category</label>
+                <select>
+                    <option>Breakfast</option>
+                    <option>Lunch</option>
+                    <option>Dinner</option>
+                    <option>Dessert</option>
+                    <option>Drinks</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Description</label>
+                <textarea rows="3" placeholder="Short description"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Ingredients</label>
+                <textarea rows="5" placeholder="One ingredient per line"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Instructions</label>
+                <textarea rows="7" placeholder="Write the cooking steps"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Cooking Time (minutes)</label>
+                <input type="number" placeholder="30">
+            </div>
+
+            <div class="form-group">
+                <label>Servings</label>
+                <input type="number" placeholder="4">
+            </div>
+
+            <div class="form-group">
+                <label>Recipe Image</label>
+                <input type="file">
+            </div>
+
+            <button class="auth-btn">
+                ➕ Add Recipe
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+{% endblock %}

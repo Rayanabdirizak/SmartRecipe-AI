@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+
+<section class="dashboard">
+
+    <div class="dashboard-header">
+
+        <div>
+
+            <h1>👋 Welcome {{ user.username }}</h1>
+
+            <p>
+                Manage your recipes, favorites, meal plans and AI cooking from one place.
+            </p>
+
+        </div>
+
+        <a href="/ai" class="dashboard-btn">
+            ✨ Generate Recipe
+        </a>
+
+    </div>
+
+    <div class="stats-grid">
+
+        <div class="stat-card">
+            <div class="stat-icon">🍽</div>
+          <h2>{{ total_recipes }}</h2>
+            <p>Recipes</p>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">❤️</div>
+        <h2>{{ total_favorites }}</h2>
+            <p>Favorites</p>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">📅</div>
+           <h2>{{ total_meal_plans }}</h2>
+            <p>Meal Plans</p>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">🛒</div>
+         <h2>{{ total_shopping }}</h2>
+            <p>Shopping Items</p>
+        </div>
+
+    </div>
+
+    <div class="dashboard-grid">
+
+        <div class="dashboard-card">
+
+            <h2>🔥 Recent Recipes</h2>
+
+         <ul>
+
+{% for recipe in [
+"Cheesy Pizza",
+"Classic Burger",
+"Creamy Pasta",
+"Grilled Chicken"
+] %}
+
+<li>🍽 {{ recipe }}</li>
+
+{% endfor %}
+
+</ul>
+
+        </div>
+
+        <div class="dashboard-card">
+
+            <h2>⚡ Quick Actions</h2>
+
+            <div class="quick-buttons">
+
+                <a href="/ai">🤖 AI Recipe</a>
+
+                <a href="/recipe">📚 Browse Recipes</a>
+
+                <a href="/favorites">❤️ Favorites</a>
+
+                <a href="/shopping">🛒 Shopping List</a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

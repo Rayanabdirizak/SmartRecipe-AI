@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}Shopping List{% endblock %}
+
+{% block content %}
+
+<section class="section">
+
+    <div class="section-title">
+
+        <h2>🛒 Shopping List</h2>
+
+    </div>
+
+    <div id="shoppingList"></div>
+
+</section>
+
+<script>
+
+const shopping =
+JSON.parse(localStorage.getItem("shopping")) || [];
+
+const container =
+document.getElementById("shoppingList");
+
+if(shopping.length===0){
+
+    container.innerHTML="<h2>No ingredients yet.</h2>";
+
+}else{
+
+    shopping.forEach(item=>{
+
+        container.innerHTML += `
+        <div class="recipe-card">
+
+            <div class="recipe-content">
+
+                ✅ ${item}
+
+            </div>
+
+        </div>
+        `;
+
+    });
+
+}
+
+</script>
+
+{% endblock %}

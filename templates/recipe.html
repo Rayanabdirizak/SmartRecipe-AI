@@ -1,0 +1,269 @@
+{% extends "base.html" %}
+
+{% block title %}Recipe Details{% endblock %}
+
+{% block content %}
+
+<section class="recipe-hero">
+
+    <div class="recipe-container">
+
+        <div class="recipe-image">
+
+            <img src="{{ url_for('static', filename='images/recipes/pizza.jpg') }}">
+
+        </div>
+
+        <div class="recipe-details">
+
+            <span class="recipe-tag">
+
+                Italian
+
+            </span>
+
+            <h1>
+
+                Cheesy Pizza
+
+            </h1>
+
+            <p>
+
+                Crispy homemade pizza topped with mozzarella,
+                tomato sauce, herbs and fresh vegetables.
+
+            </p>
+
+            <div class="recipe-meta">
+
+                <div>
+
+                    ⭐ 4.9
+
+                </div>
+
+                <div>
+
+                    ⏱ 25 Minutes
+
+                </div>
+
+                <div>
+
+                    👨‍🍳 Easy
+
+                </div>
+
+            </div>
+
+           <button
+class="recipe-btn"
+onclick="addToFavorites('Cheesy Pizza')">
+
+❤ Add to Favorites
+
+</button>
+
+<button
+class="recipe-btn"
+onclick="addToShoppingList()">
+
+🛒 Add Ingredients
+
+</button>
+
+<button onclick="clearShopping()"
+class="recipe-btn">
+
+Clear Shopping List
+
+</button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= INGREDIENTS ================= -->
+
+<section class="recipe-section">
+
+    <div class="recipe-wrapper">
+
+        <div class="ingredients">
+
+            <h2>🥗 Ingredients</h2>
+
+            <ul>
+
+                <li>✔ 2 Cups Flour</li>
+
+                <li>✔ Tomato Sauce</li>
+
+                <li>✔ Mozzarella Cheese</li>
+
+                <li>✔ Oregano</li>
+
+                <li>✔ Olive Oil</li>
+
+                <li>✔ Fresh Basil</li>
+
+                <li>✔ Black Pepper</li>
+
+                <li>✔ Salt</li>
+
+            </ul>
+
+        </div>
+
+        <div class="instructions">
+
+            <h2>👨‍🍳 Instructions</h2>
+
+            <ol>
+
+                <li>Prepare the pizza dough and let it rest for 30 minutes.</li>
+
+                <li>Spread tomato sauce evenly on the dough.</li>
+
+                <li>Add mozzarella cheese and vegetables.</li>
+
+                <li>Sprinkle oregano and basil.</li>
+
+                <li>Bake at 220°C for about 20–25 minutes.</li>
+
+                <li>Serve hot and enjoy your delicious homemade pizza.</li>
+
+            </ol>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= NUTRITION ================= -->
+
+<section class="nutrition-section">
+
+    <h2>🥗 Nutrition Facts</h2>
+
+    <div class="nutrition-grid">
+
+        <div class="nutrition-card">
+
+            <h3>Calories</h3>
+
+            <p>320 kcal</p>
+
+        </div>
+
+        <div class="nutrition-card">
+
+            <h3>Protein</h3>
+
+            <p>18 g</p>
+
+        </div>
+
+        <div class="nutrition-card">
+
+            <h3>Carbs</h3>
+
+            <p>35 g</p>
+
+        </div>
+
+        <div class="nutrition-card">
+
+            <h3>Fat</h3>
+
+            <p>12 g</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= RELATED RECIPES ================= -->
+
+<section class="section">
+
+    <div class="section-title">
+
+        <h2>🔥 Related Recipes</h2>
+
+        <p>You may also like these recipes.</p>
+
+    </div>
+
+    <div class="recipe-grid">
+
+        <div class="recipe-card">
+
+            <img src="{{ url_for('static', filename='images/recipes/burger.jpg') }}" alt="Burger">
+
+            <div class="recipe-content">
+
+                <span class="recipe-category">Fast Food</span>
+
+                <h3>Classic Burger</h3>
+
+                <a href="/recipe" class="recipe-btn">
+
+                    View Recipe
+
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="recipe-card">
+
+            <img src="{{ url_for('static', filename='images/recipes/pasta.jpg') }}" alt="Pasta">
+
+            <div class="recipe-content">
+
+                <span class="recipe-category">Italian</span>
+
+                <h3>Creamy Pasta</h3>
+
+                <a href="/recipe" class="recipe-btn">
+
+                    View Recipe
+
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="recipe-card">
+
+            <img src="{{ url_for('static', filename='images/recipes/salad.jpg') }}" alt="Salad">
+
+            <div class="recipe-content">
+
+                <span class="recipe-category">Healthy</span>
+
+                <h3>Fresh Garden Salad</h3>
+
+                <a href="/recipe" class="recipe-btn">
+
+                    View Recipe
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

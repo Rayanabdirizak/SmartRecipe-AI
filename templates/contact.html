@@ -1,0 +1,346 @@
+{% extends "base.html" %}
+
+{% block title %}Contact{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <div class="text-center mb-5">
+
+        <h1 class="fw-bold display-5">
+            📩 Contact Me
+        </h1>
+
+        <p class="text-muted fs-5">
+            Have a question, project idea, or job opportunity?
+            I'd love to hear from you.
+        </p>
+
+    </div>
+
+    <div class="row g-5">
+
+        <!-- Contact Form -->
+
+        <div class="col-lg-7">
+
+            <div class="card shadow-lg border-0 rounded-4">
+
+                <div class="card-body p-5">
+
+                    <h3 class="mb-4">
+                        Send a Message
+                    </h3>
+
+                    <form id="contactForm">
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Full Name
+                            </label>
+
+                            <input
+                                type="text"
+                                class="form-control"
+                                name="from_name"
+                                placeholder="John Smith"
+                                required>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Email Address
+                            </label>
+
+                            <input
+                                type="email"
+                                class="form-control"
+                                name="from_email"
+                                placeholder="john@gmail.com"
+                                required>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Subject
+                            </label>
+
+                            <input
+                                type="text"
+                                class="form-control"
+                                name="subject"
+                                placeholder="Job Opportunity"
+                                required>
+
+                        </div>
+
+                        <div class="mb-4">
+
+                            <label class="form-label">
+                                Message
+                            </label>
+
+                            <textarea
+                                rows="6"
+                                class="form-control"
+                                name="message"
+                                placeholder="Write your message..."
+                                required></textarea>
+
+                        </div>
+
+                        <button
+                            class="btn btn-success btn-lg w-100"
+                            type="submit">
+
+                            📨 Send Message
+
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Contact Information -->
+
+        <div class="col-lg-5">
+
+            <div class="card shadow border-0 rounded-4 h-100">
+
+                <div class="card-body p-5">
+
+                    <h3 class="mb-4">
+
+                        Contact Information
+
+                    </h3>
+
+                    <div class="mb-4">
+
+                        <h5>📧 Email</h5>
+
+                        <p class="text-muted">
+
+                            bainancecb8@gmail.com
+
+                        </p>
+
+                    </div>
+
+                    <div class="mb-4">
+
+                        <h5>📍 Location</h5>
+
+                        <p class="text-muted">
+
+                            Nairobi, Kenya
+
+                        </p>
+
+                    </div>
+
+                    <div class="mb-4">
+<div class="mb-4">
+
+    <h5>💻 GitHub</h5>
+
+    <a
+        href="https://github.com/Rayanabdirizak"
+        target="_blank">
+
+        github.com/Rayanabdirizak
+
+    </a>
+
+</div>
+
+                    <div class="mb-4">
+
+    <h5>🛠 Skills</h5>
+
+    <p class="text-muted">
+
+        Python • Flask • JavaScript • HTML • CSS • Bootstrap • SQL • AI • React
+
+    </p>
+
+</div>
+                    <div class="alert alert-success mt-4">
+
+    <h5>🟢 Available for Opportunities</h5>
+
+    <p class="mb-0">
+
+        Open to internships, freelance projects,
+        collaborations, and junior software developer roles.
+
+    </p>
+
+</div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- FAQ -->
+
+    <div class="mt-5">
+
+        <h2 class="text-center mb-4">
+
+            Frequently Asked Questions
+
+        </h2>
+
+        <div class="accordion" id="faq">
+
+            <div class="accordion-item">
+
+                <h2 class="accordion-header">
+
+                    <button
+                        class="accordion-button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#q1">
+
+                        How quickly do you reply?
+
+                    </button>
+
+                </h2>
+
+                <div
+                    id="q1"
+                    class="accordion-collapse collapse show">
+
+                    <div class="accordion-body">
+
+                        Usually within 24 hours.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="accordion-item">
+
+                <h2 class="accordion-header">
+
+                    <button
+                        class="accordion-button collapsed"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#q2">
+
+                        Are you available for freelance work?
+
+                    </button>
+
+                </h2>
+
+                <div
+                    id="q2"
+                    class="accordion-collapse collapse">
+
+                    <div class="accordion-body">
+
+                        Yes. Feel free to contact me.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="accordion-item">
+
+                <h2 class="accordion-header">
+
+                    <button
+                        class="accordion-button collapsed"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#q3">
+
+                        Which technologies do you use?
+
+                    </button>
+
+                </h2>
+
+                <div
+                    id="q3"
+                    class="accordion-collapse collapse">
+
+                    <div class="accordion-body">
+
+                        Python, Flask, JavaScript, HTML, CSS, Bootstrap, SQL, AI, React and more.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- EmailJS -->
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+
+emailjs.init({
+    publicKey: "_iVltwJ7GbtE0nExR"
+});
+
+const form = document.getElementById("contactForm");
+
+form.addEventListener("submit", function(event){
+
+    event.preventDefault();
+
+    emailjs.sendForm(
+        "service_x7ab123",
+        "template_d9xcdah",
+        this
+    )
+
+    .then(function(){
+
+        alert("✅ Message sent successfully!");
+
+        form.reset();
+
+    })
+
+    .catch(function(error){
+
+        console.error(error);
+
+        alert("❌ Failed to send message.");
+
+    });
+
+});
+
+</script>
+
+{% endblock %}

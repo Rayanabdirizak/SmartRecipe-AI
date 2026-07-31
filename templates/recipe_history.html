@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+    <h2 class="mb-4 text-center">
+        📜 Recipe History
+    </h2>
+
+    <input
+        type="text"
+        id="searchHistory"
+        class="form-control mb-4"
+        placeholder="🔍 Search recipes..."
+    >
+
+    {% if history %}
+
+        {% for recipe in history %}
+
+        <div class="card shadow-sm mb-4 history-card">
+
+            <div class="card-body">
+
+                <div class="d-flex justify-content-between">
+
+                    <h4>
+                        🍽 {{ recipe.recipe_name }}
+                    </h4>
+
+                    <small class="text-muted">
+                        {{ recipe.created_at.strftime("%d %b %Y") }}
+                    </small>
+
+                </div>
+
+                <hr>
+
+                <pre class="recipe-content">
+{{ recipe.recipe_content }}
+                </pre>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    {% else %}
+
+    <div class="alert alert-info text-center">
+
+        <h4>📭 No Recipe History Yet</h4>
+
+        <p>
+            Generate your first AI recipe and it will appear here.
+        </p>
+
+        <a href="{{ url_for('ai') }}" class="btn btn-primary">
+
+            🤖 Generate Recipe
+
+        </a>
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+<style>
+
+.recipe-content{
+    white-space:pre-wrap;
+    font-size:15px;
+    line-height:1.7;
+}
+
+.history-card{
+    transition:.3s;
+}
+
+.history-card:hover{
+    transform:translateY(-5px);
+}
+
+</style>
+
+{% endblock %}

@@ -1,0 +1,229 @@
+.dashboard{
+
+    padding:140px 8% 80px;
+
+    background:#f8fafc;
+
+    min-height:100vh;
+
+}
+
+.dashboard-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:50px;
+
+    flex-wrap:wrap;
+
+    gap:20px;
+
+}
+
+.dashboard-header h1{
+
+    font-size:42px;
+
+    color:#111827;
+
+}
+
+.dashboard-header p{
+
+    color:#6b7280;
+
+    margin-top:10px;
+
+    font-size:18px;
+
+}
+
+.dashboard-btn{
+
+    background:#ff6b35;
+
+    color:white;
+
+    padding:16px 30px;
+
+    border-radius:50px;
+
+    text-decoration:none;
+
+    font-weight:700;
+
+    transition:.3s;
+
+}
+
+.dashboard-btn:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 15px 30px rgba(255,107,53,.35);
+
+}
+
+.stats-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:25px;
+
+    margin-bottom:40px;
+
+}
+
+.stat-card{
+
+    background:white;
+
+    padding:35px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    transition:.35s;
+
+}
+
+.stat-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.stat-icon{
+
+    font-size:42px;
+
+    margin-bottom:15px;
+
+}
+
+.stat-card h2{
+
+    font-size:42px;
+
+    color:#ff6b35;
+
+}
+
+.stat-card p{
+
+    color:#6b7280;
+
+    margin-top:8px;
+
+}
+
+.dashboard-grid{
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr;
+
+    gap:30px;
+
+}
+
+.dashboard-card{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.dashboard-card h2{
+
+    margin-bottom:25px;
+
+    color:#111827;
+
+}
+
+.dashboard-card ul{
+
+    list-style:none;
+
+    padding:0;
+
+}
+
+.dashboard-card li{
+
+    padding:15px 0;
+
+    border-bottom:1px solid #eee;
+
+    font-size:17px;
+
+}
+
+.quick-buttons{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+.quick-buttons a{
+
+    background:#fff7f2;
+
+    color:#ff6b35;
+
+    padding:15px;
+
+    border-radius:12px;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.quick-buttons a:hover{
+
+    background:#ff6b35;
+
+    color:white;
+
+}
+
+@media(max-width:900px){
+
+.dashboard-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.dashboard-header{
+
+flex-direction:column;
+
+align-items:flex-start;
+
+}
+
+}

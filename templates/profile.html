@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+
+{% block title %}My Profile{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-10">
+
+            <div class="card shadow-lg border-0 rounded-4">
+
+                <div class="card-body p-5">
+
+                    <div class="text-center">
+
+                        <img src="{{ url_for('static', filename='images/avatar.png') }}"
+                             class="rounded-circle shadow"
+                             width="150"
+                             height="150"
+                             alt="Profile"
+                             >
+
+                        <h2 class="mt-4 fw-bold">
+                            {{ user.username }}
+                        </h2>
+
+                        <p class="text-muted">
+                            {{ user.email }}
+                        </p>
+
+                    </div>
+
+                    <hr class="my-5">
+
+                    <div class="row text-center">
+
+                        <div class="col-md-4 mb-4">
+
+                            <div class="card shadow-sm h-100">
+
+                                <div class="card-body">
+
+                                    <i class="fas fa-utensils fa-3x text-warning mb-3"></i>
+
+                                    <h3>{{ total_recipes }}</h3>
+
+                                    <p>Recipes</p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-4 mb-4">
+
+                            <div class="card shadow-sm h-100">
+
+                                <div class="card-body">
+
+                                    <i class="fas fa-heart fa-3x text-danger mb-3"></i>
+
+                                    <h3>{{ total_favorites }}</h3>
+
+                                    <p>Favorites</p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-4 mb-4">
+
+                            <div class="card shadow-sm h-100">
+
+                                <div class="card-body">
+
+                                    <i class="fas fa-calendar-alt fa-3x text-success mb-3"></i>
+
+                                    <h3>{{ total_meal_plans }}</h3>
+
+                                    <p>Meal Plans</p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <hr class="my-5">
+
+                    <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+                      <a href="{{ url_for('edit_profile') }}"
+   class="btn btn-warning btn-lg">
+
+    <i class="fas fa-user-edit"></i>
+    Edit Profile
+
+</a>
+
+                        <a href="{{ url_for('change_password') }}"
+   class="btn btn-primary btn-lg">
+
+    <i class="fas fa-key"></i>
+    Change Password
+
+</a>
+
+                        <a href="{{ url_for('logout') }}"
+                           class="btn btn-danger btn-lg">
+
+                            <i class="fas fa-sign-out-alt"></i>
+                            Logout
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}Recipe Details{% endblock %}
+
+{% block content %}
+
+<section class="recipe-detail">
+
+    <div class="recipe-image">
+        <img src="{{ url_for('static', filename='images/recipes/pizza.jpg') }}" alt="Recipe">
+    </div>
+
+    <div class="recipe-content">
+
+        <span class="recipe-category">
+            🍕 Italian
+        </span>
+
+        <h1>Cheesy Pizza</h1>
+
+        <div class="recipe-meta">
+            <span>⭐ 4.9</span>
+            <span>⏱️ 25 min</span>
+            <span>🍽️ 4 Servings</span>
+        </div>
+
+        <h2>Ingredients</h2>
+
+        <ul>
+            <li>Pizza Dough</li>
+            <li>Mozzarella Cheese</li>
+            <li>Tomato Sauce</li>
+            <li>Fresh Basil</li>
+            <li>Olive Oil</li>
+        </ul>
+
+        <h2>Instructions</h2>
+
+        <ol>
+            <li>Preheat the oven to 220°C.</li>
+            <li>Spread tomato sauce on the dough.</li>
+            <li>Add mozzarella cheese.</li>
+            <li>Bake for 20–25 minutes.</li>
+            <li>Serve hot with fresh basil.</li>
+        </ol>
+
+        <button class="recipe-btn">
+            ❤️ Save Recipe
+        </button>
+
+    </div>
+
+</section>
+
+{% endblock %}
