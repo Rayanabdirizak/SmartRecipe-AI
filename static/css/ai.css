@@ -1,0 +1,187 @@
+/* ===========================================
+   AI GENERATOR
+=========================================== */
+
+.ai-card{
+    max-width:900px;
+    margin:40px auto;
+    background:#fff;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 15px 40px rgba(0,0,0,.12);
+}
+
+.ai-header{
+    background:linear-gradient(135deg,#ff7a18,#ffb347);
+    color:white;
+    padding:25px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+}
+
+.ai-header h2{
+    font-size:30px;
+}
+
+.ai-badge{
+    background:white;
+    color:#ff7a18;
+    padding:8px 18px;
+    border-radius:50px;
+    font-weight:700;
+}
+
+.ai-body{
+    padding:35px;
+}
+
+.recipe-output{
+
+    white-space:pre-wrap;
+
+    font-size:17px;
+
+    line-height:2;
+
+    color:#374151;
+
+}
+
+.ai-footer{
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:20px;
+
+    padding:30px;
+
+    background:#fafafa;
+
+}
+
+.recipe-btn{
+
+    background:#FF6B35;
+
+    color:white;
+
+    border:none;
+
+    padding:14px 25px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.recipe-btn:hover{
+
+    background:#e85a28;
+
+}
+
+/* ===========================
+   LOADING
+=========================== */
+
+.loading-card{
+
+    max-width:600px;
+
+    margin:60px auto;
+
+    background:white;
+
+    padding:50px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.12);
+
+}
+
+.loader{
+
+    width:70px;
+
+    height:70px;
+
+    margin:auto;
+
+    border-radius:50%;
+
+    border:8px solid #eee;
+
+    border-top:8px solid #FF6B35;
+
+    animation:spin 1s linear infinite;
+
+}
+
+.loading-card h2{
+
+    margin-top:25px;
+
+    color:#FF6B35;
+
+}
+
+.loading-card p{
+
+    margin-top:10px;
+
+    color:#6B7280;
+
+}
+
+@keyframes spin{
+
+    from{
+
+        transform:rotate(0);
+
+    }
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+/* ===========================
+   TYPING
+=========================== */
+
+#typingText::after{
+
+    content:"|";
+
+    animation:blink .8s infinite;
+
+    color:#FF6B35;
+
+}
+
+@keyframes blink{
+
+    50%{
+
+        opacity:0;
+
+    }
+
+}

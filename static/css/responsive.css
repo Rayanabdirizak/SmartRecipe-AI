@@ -1,0 +1,191 @@
+/* ===========================================
+   RESPONSIVE DESIGN
+=========================================== */
+
+/* ---------- Tablets ---------- */
+
+@media (max-width:992px){
+
+.nav-container{
+    width:95%;
+}
+
+.nav-menu{
+    gap:18px;
+}
+
+.footer-container{
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+}
+
+.hero{
+    flex-direction:column;
+    text-align:center;
+}
+
+.hero-left,
+.hero-right{
+    width:100%;
+}
+
+.dashboard-grid,
+.categories,
+.recipes,
+.planner-grid{
+    grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+
+/* ---------- Mobile ---------- */
+
+@media (max-width:768px){
+
+.menu-toggle{
+    display:block;
+}
+
+#nav-menu{
+
+    position:absolute;
+
+    top:90px;
+
+    left:-100%;
+
+    width:100%;
+
+    background:white;
+
+    transition:.4s;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.1);
+
+}
+
+#nav-menu.active{
+
+    left:0;
+
+}
+
+.nav-menu{
+
+    flex-direction:column;
+
+    gap:20px;
+
+    padding:30px;
+
+}
+
+.hero{
+
+    flex-direction:column;
+
+    text-align:center;
+
+    padding:40px 20px;
+
+}
+
+.hero-left,
+.hero-right{
+
+    width:100%;
+
+}
+
+.hero h1{
+
+    font-size:40px;
+
+}
+
+.hero p{
+
+    font-size:18px;
+
+}
+
+.search-box{
+
+    flex-direction:column;
+
+}
+
+.search-box input,
+.search-box button{
+
+    width:100%;
+
+}
+
+.dashboard-grid,
+.categories,
+.recipes,
+.planner-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.footer-container{
+
+    grid-template-columns:1fr;
+
+    text-align:center;
+
+}
+
+.footer-social{
+
+    justify-content:center;
+
+}
+
+.footer-bottom{
+
+    flex-direction:column;
+
+    gap:15px;
+
+    text-align:center;
+
+}
+
+}
+
+
+/* ---------- Small Phones ---------- */
+
+@media (max-width:480px){
+
+.logo{
+
+    font-size:1.5rem;
+
+}
+
+.hero h1{
+
+    font-size:32px;
+
+}
+
+.section-title h2{
+
+    font-size:28px;
+
+}
+
+.primary-btn,
+.login-btn{
+
+    font-size:14px;
+
+}
+
+}

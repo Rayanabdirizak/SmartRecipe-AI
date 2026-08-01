@@ -1,0 +1,81 @@
+/* ===========================================
+   LOADING SCREEN
+=========================================== */
+
+#loader{
+    position:fixed;
+    inset:0;
+    background:linear-gradient(135deg,#ff6b35,#ff8c42);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:999999;
+    transition:opacity .8s ease, visibility .8s ease;
+}
+
+.loader-hidden{
+    opacity:0;
+    visibility:hidden;
+}
+
+/* Loader Content */
+
+.loader-content{
+    text-align:center;
+    color:white;
+}
+
+.loader-icon{
+    font-size:80px;
+    animation:bounce 2s infinite;
+}
+
+.loader-content h1{
+    margin-top:20px;
+    font-size:48px;
+    font-weight:800;
+}
+
+.loader-content p{
+    margin-top:15px;
+    font-size:18px;
+    opacity:.95;
+}
+
+/* Progress Bar */
+
+.loading-bar{
+    width:320px;
+    height:10px;
+    margin:35px auto 0;
+    background:rgba(255,255,255,.25);
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.loading-progress{
+    width:0;
+    height:100%;
+    background:white;
+    animation:loading 2.2s linear forwards;
+}
+
+/* Animations */
+
+@keyframes loading{
+    from{
+        width:0;
+    }
+    to{
+        width:100%;
+    }
+}
+
+@keyframes bounce{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-12px);
+    }
+}

@@ -97,57 +97,46 @@ href="{{ url_for('static', filename='css/style.css') }}">
 
     
 <!-- ================= PREMIUM NAVBAR ================= -->
-
 <header class="navbar">
 
     <div class="nav-container">
 
         <a href="/" class="logo">
-
             <i class="fa-solid fa-utensils"></i>
-
             <span>SmartRecipe AI</span>
-
         </a>
 
-        <nav>
+        <div class="menu-toggle" id="menu-toggle">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
+        <nav id="nav-menu">
 
             <ul class="nav-menu">
 
-    <li><a href="/">Home</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/ai">AI Generator</a></li>
+                <li><a href="/recipe">Recipes</a></li>
+                <li><a href="/planner">Meal Planner</a></li>
+                <li><a href="/dashboard">Dashboard</a></li>
+                <li><a href="/profile">Profile</a></li>
+                <li><a href="/contact">Contact</a></li>
 
-    <li><a href="/ai">AI Generator</a></li>
+                <li>
+                    <a href="/login" class="login-btn">
+                        Login
+                    </a>
+                </li>
 
-    <li><a href="/recipe">Recipes</a></li>
+                <li>
+                    <a href="/register" class="primary-btn">
+                        ✨ Get Started
+                    </a>
+                </li>
 
-    <li><a href="/planner">Meal Planner</a></li>
-
-    <li><a href="/dashboard">Dashboard</a></li>
-
-    <li><a href="{{ url_for('profile') }}">Profile</a></li>
-
-    <li><a href="/contact">Contact</a></li>
-
-</ul>
-            
+            </ul>
 
         </nav>
-
-        <div class="nav-actions">
-
-            <a href="/login" class="login-btn">
-
-                Login
-
-            </a>
-
-            <a href="/register" class="primary-btn">
-
-                ✨ Get Started
-
-            </a>
-
-        </div>
 
     </div>
 
@@ -383,7 +372,18 @@ window.addEventListener("load", function(){
 </script>
 
 
+<script>
 
+const menu=document.getElementById("menu-toggle");
+const nav=document.getElementById("nav-menu");
+
+menu.addEventListener("click",()=>{
+
+    nav.classList.toggle("active");
+
+});
+
+</script>
 
 
 </body>
