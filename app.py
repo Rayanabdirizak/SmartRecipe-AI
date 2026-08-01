@@ -408,7 +408,7 @@ def generate_recipe():
             "error": str(e)
         }), 500
 
-
+    
     
 @app.route("/save-favorite", methods=["POST"])
 @login_required

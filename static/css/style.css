@@ -1919,3 +1919,70 @@ gap:12px;
     visibility:hidden;
 
 }
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width:768px){
+
+.nav-container{
+    flex-direction:column;
+    padding:15px;
+    gap:15px;
+}
+
+.nav-menu{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:15px;
+}
+
+.nav-actions{
+    width:100%;
+    justify-content:center;
+    display:flex;
+    gap:12px;
+}
+
+.logo{
+    font-size:2rem;
+}
+
+.hero{
+    flex-direction:column;
+    text-align:center;
+    padding:40px 20px;
+}
+
+.hero-content{
+    width:100%;
+}
+
+.hero-image{
+    width:100%;
+    margin-top:30px;
+}
+
+.hero-image img{
+    width:100%;
+    max-width:350px;
+}
+
+h1{
+    font-size:2.3rem;
+}
+
+.cards{
+    grid-template-columns:1fr;
+}
+
+.recipe-card{
+    width:100%;
+}
+
+img{
+    max-width:100%;
+    height:auto;
+}
+}
