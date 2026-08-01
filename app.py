@@ -359,7 +359,6 @@ def history():
 def ai(): return render_template("ai_recipe.html")
 
 @app.route("/generate-recipe", methods=["POST"])
-@login_required
 def generate_recipe():
 
     ingredients = request.form.get("ingredients", "").strip()
@@ -369,11 +368,18 @@ def generate_recipe():
 
     prompt = f"""
     You are a professional chef.
-    Create a recipe using: {ingredients}
+    Create a delicious recipe using these ingredients:
+    {ingredients}
+
+    Include:
+    - Recipe Name
+    - Ingredients
+    - Instructions
+    - Cooking Time
+    - Tips
     """
 
     try:
-
         response = client.models.generate_content(
             model="gemini-flash-lite-latest",
             contents=prompt
@@ -381,14 +387,17 @@ def generate_recipe():
 
         recipe_text = response.text
 
-        recipe = RecipeHistory(
-            recipe_name=ingredients.title(),
-            recipe_content=recipe_text,
-            user_id=current_user.id
-        )
+        # Save history only if the user is logged in
+        if current_user.is_authenticated:
 
-        db.session.add(recipe)
-        db.session.commit()
+            recipe = RecipeHistory(
+                recipe_name=ingredients.title(),
+                recipe_content=recipe_text,
+                user_id=current_user.id
+            )
+
+            db.session.add(recipe)
+            db.session.commit()
 
         return jsonify({
             "recipe": recipe_text
@@ -399,6 +408,8 @@ def generate_recipe():
             "error": str(e)
         }), 500
 
+
+    
 @app.route("/save-favorite", methods=["POST"])
 @login_required
 def save_favorite():
@@ -586,18 +597,14 @@ def change_password():
     return render_template("change_password.html")
 
 
+import os
+
 if __name__ == "__main__":
 
     with app.app_context():
-        print("Creating database...")
         db.create_all()
-        print("Tables created!")
-        print("Tables:", db.metadata.tables.keys())
-        print("Database URI:", app.config["SQLALCHEMY_DATABASE_URI"])
-        print("Instance path:", app.instance_path)
 
     app.run(
-        host="127.0.0.1",
-        port=5000,
-        debug=True
+        host="0.0.0.0",
+        port=int(os.environ.get("PORT", 5000))
     )
